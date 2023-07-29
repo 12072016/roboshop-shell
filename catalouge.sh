@@ -17,7 +17,7 @@ echo -e "\e[34m>>>>>>>install nodejs dependensies <<<<<<<<\e[0m"
 
 npm install
 echo -e "\e[34m>>>>>>>copy catalouge systemd file<<<<<<<<\e[0m"
-cp catalouge.service /etc/systemd/system/catalogue.service
+cp /root/roboshop-shell/catalouge.service /etc/systemd/system/catalogue.service
 echo -e "\e[34m>>>>>>>start catalouge service<<<<<<<<\e[0m"
 systemctl daemon-reload
 
