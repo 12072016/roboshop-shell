@@ -26,7 +26,9 @@ yum install mysql -y
 echo -e "\e[34m>>>>>>>load schema<<<<<<<\e[0m"
 mysql -h <mysql-dev.kirandevops.online> -uroot -pRoboShop@1 < /app/schema/shipping.sql
 
+echo -e "\e[34m>>>>>>>setup service d file <<<<<<<<\e[0m"
 
+cp /root/roboshop-shell/shipping.service /etc/systemd/system/shipping.service
 echo -e "\e[34m>>>>>>>start shipping service<<<<<<<<\e[0m"
 systemctl daemon-reload
 
