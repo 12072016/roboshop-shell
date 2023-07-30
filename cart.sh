@@ -6,6 +6,7 @@ yum install nodejs -y
 echo -e "\e[36m>>>>>>>adding app user<<<<<<<<\e[0m"
 useradd roboshop
 echo -e "\e[36m>>>>>>>creating app directory <<<<<<<<\e[0m"
+rm -rf /app
 mkdir /app
 echo -e "\e[36m>>>>>>>downloading app content<<<<<<<<\e[0m"
 curl -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart.zip
@@ -25,5 +26,5 @@ systemctl daemon-reload
 
 
 systemctl enable cart
-systemctl start cart
+systemctl restart cart
 
