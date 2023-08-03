@@ -1,5 +1,5 @@
-source common.sh
-
+script_path=$(dirname $0)
+source ${script_path}/common.sh
 
 mysql_root_password=$1
 echo -e "\e[34m>>>>>>>install python<<<<<<<<\e[0m"
@@ -18,7 +18,7 @@ unzip /tmp/payment.zip
 echo -e "\e[34m>>>>>>>install dependensis<<<<<<<<\e[0m"
 pip3.6 install -r requirements.txt
 echo -e "\e[34m>>>>>>>copy and setup service file<<<<<<<<\e[0m"
-cp /root/roboshop-shell/payment.service /etc/systemd/system/payment.service
+cp ${script_path}/payment.service /etc/systemd/system/payment.service
 
 echo -e "\e[34m>>>>>>>start payment service<<<<<<<<\e[0m"
 systemctl daemon-reload

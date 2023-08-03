@@ -1,4 +1,5 @@
-source common.sh
+script_path=$(dirname $0)
+source ${script_path}/common.sh
 
 mysql_root_password=$1
 echo -e "\e[34m>>>>>>>install maven repo<<<<<<<<\e[0m"
@@ -31,7 +32,7 @@ mysql -h <mysql-dev.kirandevops.online> -uroot -p${mysql_root_password} < /app/s
 
 echo -e "\e[34m>>>>>>>setup service d file <<<<<<<<\e[0m"
 
-cp /root/roboshop-shell/shipping.service /etc/systemd/system/shipping.service
+cp ${script_path}/shipping.service /etc/systemd/system/shipping.service
 echo -e "\e[34m>>>>>>>start shipping service<<<<<<<<\e[0m"
 systemctl daemon-reload
 

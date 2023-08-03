@@ -1,7 +1,7 @@
 
 script_path=$(dirname $0)
 source ${script_path}/common.sh
-echo $app_user
+
 
 ### here we are finding the path woth command and sourcing the path with script path
 
@@ -25,7 +25,7 @@ unzip /tmp/cart.zip
 echo -e "\e[36m>>>>>>>downloading app dependencies<<<<<<<<\e[0m"
 npm install
 echo -e "\e[36m>>>>>>>creating app directory<<<<<<<<\e[0m"
-cp /root/roboshop-shell/cart.service /etc/systemd/system/cart.service
+cp ${script_path}/cart.service /etc/systemd/system/cart.service
 
 echo -e "\e[36m>>>>>>>starting cart service<<<<<<<<\e[0m"
 

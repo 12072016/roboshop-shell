@@ -1,4 +1,5 @@
-source common.sh
+script_path=$(dirname $0)
+source ${script_path}/common.sh
 
 echo -e "\e[34m>>>>>>>configuring user repo<<<<<<<<\e[0m"
 
@@ -27,7 +28,7 @@ npm install
 
 echo -e "\e[34m>>>>>>>copy user servoce file<<<<<<<<\e[0m"
 
-cp /home/roboshop-shell/user.service /etc/systemd/system/user.service
+cp ${script_path}user.service /etc/systemd/system/user.service
 
 
 echo -e "\e[34m>>>>>>>start  user<<<<<<<<\e[0m"
@@ -40,7 +41,7 @@ systemctl start user
 
 echo -e "\e[34m>>>>>>>copy mongodb repo<<<<<<<<\e[0m"
 
-cp /home/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
+cp ${script_path}mongo.repo /etc/yum.repos.d/mongo.repo
 
 yum install mongodb-org-shell -y
 echo -e "\e[34m>>>>>>>install schema<<<<<<<<\e[0m"

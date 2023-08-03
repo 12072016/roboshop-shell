@@ -1,4 +1,7 @@
-source common.sh
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+
+
 echo -e "\e[34m>>>>>>>configuring nodejs repo<<<<<<<<\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
@@ -18,7 +21,7 @@ echo -e "\e[34m>>>>>>>install nodejs dependensies <<<<<<<<\e[0m"
 
 npm install
 echo -e "\e[34m>>>>>>>copy catalouge systemd file<<<<<<<<\e[0m"
-cp /root/roboshop-shell/catalouge.service /etc/systemd/system/catalogue.service
+cp ${script_path}/catalouge.service /etc/systemd/system/catalogue.service
 echo -e "\e[34m>>>>>>>start catalouge service<<<<<<<<\e[0m"
 systemctl daemon-reload
 
@@ -27,7 +30,7 @@ systemctl enable catalogue
 systemctl start catalogue
 systemctl restart catalogue
 echo -e "\e[34m>>>>>>>copy mongodb repo <<<<<<<<\e[0m"
-cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
+cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
 echo -e "\e[34m>>>>>>>install mongodb client<<<<<<<<\e[0m"
 yum install mongodb-org-shell -y
 echo -e "\e[34m>>>>>>>load schema<<<<<<<<\e[0m"
