@@ -1,6 +1,6 @@
-script_path=$(dirname $0)
+SCRIPT=$(REALPATH "$0")
+script_path=$(dirname $SCRIPT)
 source ${script_path}/common.sh
-
 mysql_root_password=$1
 echo -e "\e[34m>>>>>>>install python<<<<<<<<\e[0m"
 yum install python36 gcc python3-devel -y

@@ -1,4 +1,6 @@
-
+SCRIPT=$(REALPATH "$0")
+script_path=$(dirname $SCRIPT)
+source ${script_path}/common.sh
 echo -e "\e[36m>>>>>>>disable my sql default 8 version<<<<<<<<\e[0m"
 dnf module disable mysql -y
 echo -e "\e[36m>>>>>>>coping my sql repo file<<<<<<<<\e[0m"

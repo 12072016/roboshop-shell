@@ -1,4 +1,5 @@
-script_path=$(dirname $0)
+SCRIPT=$(REALPATH "$0")
+script_path=$(dirname $SCRIPT)
 source ${script_path}/common.sh
 
 echo -e "\e[34m>>>>>>>configuring user repo<<<<<<<<\e[0m"

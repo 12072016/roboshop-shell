@@ -1,3 +1,7 @@
+SCRIPT=$(REALPATH "$0")
+script_path=$(dirname $SCRIPT)
+source ${script_path}/common.sh
+
 rabbitmq_appuser_password=$1
 
 echo -e "\e[36m>>>>>>>setup earlang repos <<<<<<<<\e[0m"
