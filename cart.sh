@@ -1,5 +1,9 @@
 
-source common.sh
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+echo $app_user
+
+### here we are finding the path woth command and sourcing the path with script path
 
 echo -e "\e[36m>>>>>>>configuring nodejs repo<<<<<<<<\e[0m"
 
