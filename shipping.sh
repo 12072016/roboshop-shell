@@ -1,4 +1,6 @@
 source common.sh
+
+mysql_root_password=$1
 echo -e "\e[34m>>>>>>>install maven repo<<<<<<<<\e[0m"
 
 yum install maven -y
@@ -25,7 +27,7 @@ mv target/shipping-1.0.jar shipping.jar
 echo -e "\e[34m>>>>>>>install mysql <<<<<<<<\e[0m"
 yum install mysql -y
 echo -e "\e[34m>>>>>>>load schema<<<<<<<\e[0m"
-mysql -h <mysql-dev.kirandevops.online> -uroot -pRoboShop@1 < /app/schema/shipping.sql
+mysql -h <mysql-dev.kirandevops.online> -uroot -p${mysql_root_password} < /app/schema/shipping.sql
 
 echo -e "\e[34m>>>>>>>setup service d file <<<<<<<<\e[0m"
 

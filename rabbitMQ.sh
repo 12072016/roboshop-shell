@@ -1,3 +1,5 @@
+rabbitmq_appuser_password=$1
+
 echo -e "\e[36m>>>>>>>setup earlang repos <<<<<<<<\e[0m"
 
 
@@ -17,5 +19,5 @@ systemctl enable rabbitmq-server
 systemctl restart rabbitmq-server
 
 echo -e "\e[36m>>>>>>>add application user in rabbit mq<<<<<<<<\e[0m"
-rabbitmqctl add_user roboshop roboshop123
+rabbitmqctl add_user roboshop ${rabbitmq_appuser_password}
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"

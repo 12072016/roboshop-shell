@@ -1,4 +1,7 @@
 source common.sh
+
+
+mysql_root_password=$1
 echo -e "\e[34m>>>>>>>install python<<<<<<<<\e[0m"
 yum install python36 gcc python3-devel -y
 echo -e "\e[34m>>>>>>>add app user<<<<<<<<\e[0m"
