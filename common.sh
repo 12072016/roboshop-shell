@@ -15,6 +15,18 @@ print_head() {
   echo -e "\e[34m>>>>>>>$*<<<<<<<<\e[0m"
 }
 
+schema_setup(){
+
+  echo -e "\e[34m>>>>>>>copy mongodb repo<<<<<<<<\e[0m"
+
+  cp ${script_path}mongo.repo /etc/yum.repos.d/mongo.repo
+
+  yum install mongodb-org-shell -y
+  echo -e "\e[34m>>>>>>>install schema<<<<<<<<\e[0m"
+
+  mongo --host mongodb-dev.kirandevops.online </app/schema/$component.js
+}
+
 #####function
 func_nodejs()  {   print_head "configuring nodejs repo"
 
@@ -45,4 +57,5 @@ func_nodejs()  {   print_head "configuring nodejs repo"
 
              systemctl enable ${component}
              systemctl restart ${component}
+             schema_setup
              }
