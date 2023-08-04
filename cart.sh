@@ -1,9 +1,12 @@
-SCRIPT=$(REALPATH "$0")
-script_path=$(dirname $SCRIPT)
+script=$(REALPATH "$0")
+script_path=$(dirname $script)
 source ${script_path}/common.sh
 
 
-### here we are finding the path woth command and sourcing the path with script path
+### here we are finding the path with command and sourcing the path with script path
+
+component=cart
+func_nodejs
 
 echo -e "\e[36m>>>>>>>configuring nodejs repo<<<<<<<<\e[0m"
 
