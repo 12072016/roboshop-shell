@@ -14,7 +14,7 @@ script_path=$(dirname "$script")
 
 
 #####function
-func_nodejs(){echo -e "\e[36m>>>>>>>configuring nodejs repo<<<<<<<<\e[0m"
+func_nodejs()  {  echo -e "\e[36m>>>>>>>configuring nodejs repo<<<<<<<<\e[0m"
 
              curl -sL https://rpm.nodesource.com/setup_lts.x | bash
              echo -e "\e[36m>>>>>>>install nodejs repo<<<<<<<<\e[0m"
