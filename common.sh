@@ -34,7 +34,7 @@ func_noejs(){echo -e "\e[36m>>>>>>>configuring nodejs repo<<<<<<<<\e[0m"
              echo -e "\e[36m>>>>>>>downloading app dependencies<<<<<<<<\e[0m"
              npm install
              echo -e "\e[36m>>>>>>>creating app directory<<<<<<<<\e[0m"
-             cp ${script_path}/cart.service /etc/systemd/system/${component}.service
+             cp ${script_path}/${component}.service /etc/systemd/system/${component}.service
 
              echo -e "\e[36m>>>>>>>starting cart service<<<<<<<<\e[0m"
 
