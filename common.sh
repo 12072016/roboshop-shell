@@ -11,32 +11,34 @@ script_path=$(dirname "$script")
 ###script=$(realpath "$0")
 ####script_path=$(dirname "$script")
 
-
+print_head() {
+  echo -e "\e[34m>>>>>>>$*<<<<<<<<\e[0m"
+}
 
 #####function
-func_nodejs()  {  echo -e "\e[36m>>>>>>>configuring nodejs repo<<<<<<<<\e[0m"
+func_nodejs()  {   print_head "configuring nodejs repo"
 
              curl -sL https://rpm.nodesource.com/setup_lts.x | bash
-             echo -e "\e[36m>>>>>>>install nodejs repo<<<<<<<<\e[0m"
+              print_head "install nodejs repo"
              yum install nodejs -y
-             echo -e "\e[36m>>>>>>>adding app user<<<<<<<<\e[0m"
+             print_head "adding app user"
              useradd ${app_user}
-             echo -e "\e[36m>>>>>>>creating app directory <<<<<<<<\e[0m"
+             print_head "creating app directory"
              rm -rf /app
              mkdir /app
-             echo -e "\e[36m>>>>>>>downloading app content<<<<<<<<\e[0m"
+             print_head "downloading app content"
              curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
 
              cd /app
-             echo -e "\e[36m>>>>>>>unzip app content<<<<<<<<\e[0m"
+             print_head "unzip app content"
              unzip /tmp/${component}.zip
 
-             echo -e "\e[36m>>>>>>>downloading app dependencies<<<<<<<<\e[0m"
+             print_head "downloading app dependencies"
              npm install
-             echo -e "\e[36m>>>>>>>creating app directory<<<<<<<<\e[0m"
+             print_head "creating app directory"
              cp ${script_path}/${component}.service /etc/systemd/system/${component}.service
 
-             echo -e "\e[36m>>>>>>>starting cart service<<<<<<<<\e[0m"
+              print_head "starting cart service"
 
              systemctl daemon-reload
 
