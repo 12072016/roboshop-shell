@@ -1,6 +1,17 @@
 script=$(REALPATH "$0")
 script_path=$(dirname $script)
 source ${script_path}/common.sh
+mysql_root_password=$1
+
+if [ -z "$mysql_root_password" ];then
+  echo Input mysql root  password missing
+  exit
+fi
+
+if [ -z "$mysql_root_password" ];then
+  echo Input rmysql root  password missing
+  exit
+fi
 echo -e "\e[36m>>>>>>>disable my sql default 8 version<<<<<<<<\e[0m"
 dnf module disable mysql -y
 echo -e "\e[36m>>>>>>>coping my sql repo file<<<<<<<<\e[0m"
